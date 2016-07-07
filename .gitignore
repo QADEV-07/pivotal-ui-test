@@ -98,3 +98,8 @@ target/
 movies/target/
 movies/movies.iml
 *.fundacionjala.PivotalFinalTest.iml
+/pivotal.properties
+pivotal.properties
+pom.xml
+lib/
+pivotal.iml
