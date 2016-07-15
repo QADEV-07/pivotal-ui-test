@@ -83,8 +83,8 @@ public class WorkspaceStepDef {
     }
 
     @Given("^I click on (.*) created$")
-    public void iClickOnWorkspace(int arg0) {
-        workspace = dashboard.clickNameWorkspaceLink();
+    public void iClickOnWorkspace(String nameWorkspace) {
+        workspace = dashboard.clickNameWorkspaceLink (nameWorkspace);
     }
 
     @When("^I click on Settings of SideBar$")
