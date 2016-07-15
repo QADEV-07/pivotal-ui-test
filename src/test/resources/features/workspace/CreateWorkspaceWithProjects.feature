@@ -1,13 +1,11 @@
 Feature: Workspace with Projects
 
   Background: I have projects created
-    Given I login with credentials valid
-    When  I have the next parameters:
+    Given I send a POST request to /projects
       | name   | project3444 |
       | public | true        |
-    When I have the /projects endpoint
-    When I sent a POST request
-    And stored as MyProject
+    And stored as ProjectW
+    Given I login with credentials valid
 
   Scenario: Add project to Workspace created
 
@@ -18,4 +16,5 @@ Feature: Workspace with Projects
     And I  click on list projects icon
     When I select the project created previously
     And I click on Save Workspace button
-    Then I expect a workspace with the project selected
+    Then I expect a workspace with the selected project
+
