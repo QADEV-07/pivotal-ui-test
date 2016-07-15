@@ -84,7 +84,7 @@ public class WorkspaceStepDef {
 
     @Given("^I click on (.*) created$")
     public void iClickOnWorkspace(String nameWorkspace) {
-        workspace = dashboard.clickNameWorkspaceLink (nameWorkspace);
+        workspace = loginStepDef.getDashboard().clickNameWorkspaceLink (nameWorkspace);
     }
 
     @When("^I click on Settings of SideBar$")
@@ -92,13 +92,9 @@ public class WorkspaceStepDef {
         settingWorkspace = workspace.getToolBarWorkspace().clickSettingsWorkspaceLink();
     }
 
-    @And("^I click on Delete link$")
+    @And("^I click on Delete link and confirm$")
     public void iClickOnDeleteLink() {
         deleteWorkspace = settingWorkspace.clickDeleteWorkspaceLink();
-    }
-
-    @When("^I click on Confirm Delete button$")
-    public void iClickOnConfirmDeleteButton() {
         dashboard = deleteWorkspace.clickConfirmDeleteLink();
     }
 

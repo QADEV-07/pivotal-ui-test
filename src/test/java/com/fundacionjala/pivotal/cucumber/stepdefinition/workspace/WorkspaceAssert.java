@@ -30,9 +30,9 @@ public class WorkspaceAssert {
         workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
     }
 
-    @Then("^I expect a workspace with the project selected$")
-    public void iExpectAWorkspaceWithTheProjectSelected () {
-        //assertcontains
+    @Then("^I expect a workspace with the selected project$")
+    public void iExpectAWorkspaceWithTheProjectSelected (String nameProject) {
+        assertEquals (nameProject, workspaceStepDef.getWorkspace ().getWorkspaceNameText ());
     }
 
     @Then("^I expect the next message: (.*)$")

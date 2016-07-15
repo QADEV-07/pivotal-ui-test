@@ -2,16 +2,15 @@ Feature: Delete and Put a Workspace
 
  Background: I have workspace created
     Given I send a POST request to /my/workspaces
-    | name   | workspace3445 |
+    | name   | workspace3449 |
     And stored as WorkspaceTest
     Given I login with credentials valid
 
   Scenario: Delete Workspace
-    Given I click on workspace3445 created
+    Given I click on workspace3449 created
     When I click on Settings of SideBar
-    And I click on Delete link
-    When I click on Confirm Delete button
-    Then I expect the next message: workspace3444 was successfully deleted.
+    And I click on Delete link and confirm
+    Then I expect the next message: workspace3449 was successfully deleted.
 
 
   @workspace
