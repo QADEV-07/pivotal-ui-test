@@ -89,7 +89,8 @@ public class Dashboard extends BasePage {
     }
 
     public String getMessageDeleteWorkspace() {
-
         return messageDeleteWorkspace.getText();
     }
+
+
 }

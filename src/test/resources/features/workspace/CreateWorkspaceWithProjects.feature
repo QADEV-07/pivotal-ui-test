@@ -1,5 +1,6 @@
 Feature: Workspace with Projects
 
+  @project
   Background: I have projects created
     Given I send a POST request to /projects
       | name   | project3444 |
@@ -7,6 +8,7 @@ Feature: Workspace with Projects
     And stored as ProjectW
     Given I login with credentials valid
 
+  @workspace
   Scenario: Add project to Workspace created
 
     Given I am on Pivotal Create Workspace form

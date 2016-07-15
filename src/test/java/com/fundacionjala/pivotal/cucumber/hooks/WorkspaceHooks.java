@@ -3,7 +3,7 @@ package com.fundacionjala.pivotal.cucumber.hooks;
 import com.fundacionjala.pivotal.cucumber.stepdefinition.api.ApiResourcesSteps;
 import cucumber.api.java.After;
 
-import static com.fundacionjala.pivotal.api.Mapper.mapUrlToDeleteWorkspace;
+import static com.fundacionjala.pivotal.api.Mapper.mapUrlToDeleteProject;
 import static com.fundacionjala.pivotal.api.RequestManager.deleteRequest;
 
 /**
@@ -21,12 +21,10 @@ public class WorkspaceHooks {
         this.api = api;
     }
 
-
     @After("@workspace")
     public void afterStoryScenario() {
         if (api.getResponse().statusCode() == SUCCESS_STATUS_CODE || api.getResponse().statusCode() == DELETE_STATUS_CODE) {
-            deleteRequest(mapUrlToDeleteWorkspace(api.getEndPoint()));
+            deleteRequest(mapUrlToDeleteProject(api.getEndPoint()));
         }
     }
-
 }
