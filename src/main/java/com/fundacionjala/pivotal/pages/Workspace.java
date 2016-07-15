@@ -30,8 +30,8 @@ public class Workspace extends BasePage {
     public Workspace(){
 
         sideBarWorkspace = new SideBarWorkspace ();
-        toolBarWorkspace = new ToolBarWorkspace();
 
+        toolBarWorkspace = new ToolBarWorkspace();
     }
 
     public Dashboard clickReturnDashboardLink() {
