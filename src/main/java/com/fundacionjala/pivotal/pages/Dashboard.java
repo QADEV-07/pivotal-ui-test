@@ -27,6 +27,12 @@ public class Dashboard extends BasePage {
     @FindBy(id = "notice")
     private WebElement deleteMessageText;
 
+    @FindBy(linkText = "workspace3444")
+    private WebElement nameWorkspaceLink;
+
+    @FindBy(id = "notice")
+    private WebElement messageDeleteWorkspace;
+
     /**
      * @return
      */
@@ -75,5 +81,15 @@ public class Dashboard extends BasePage {
         WebElement taskElement = driver.findElement(By.xpath("//*[@class='hover_link settings' and @href=\"/projects/"+nameProjects+"/settings\"]"));
         taskElement.click();
         return new Setting();
+    }
+
+    public Workspace clickNameWorkspaceLink() {
+        nameWorkspaceLink.click();
+        return new Workspace();
+    }
+
+    public String getMessageDeleteWorkspace() {
+
+        return messageDeleteWorkspace.getText();
     }
 }

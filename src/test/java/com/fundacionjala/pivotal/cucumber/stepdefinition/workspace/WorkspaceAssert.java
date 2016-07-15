@@ -34,4 +34,17 @@ public class WorkspaceAssert {
     public void iExpectAWorkspaceWithTheProjectSelected () {
         //assertcontains
     }
+
+    @Then("^I expect the next message: (.*)$")
+    public void iExpectTheNextMessageWorkspaceWasSuccessfullyDeleted(String message) {
+        if(message.equalsIgnoreCase("Changes saved.")){
+            assertEquals(message, workspaceStepDef.getSettingWorkspace().getMessageChangesWorkspace());
+        }
+        else {
+            assertEquals(message, workspaceStepDef.getDashboard().getMessageDeleteWorkspace());
+        }
+
+        workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
+
+    }
 }

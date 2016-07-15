@@ -17,6 +17,8 @@ public final class Mapper {
 
     private static final String REGEX_UNTIL_PROJECT = "^(\\/.*?\\/.*?\\/)";
 
+    private static final String REGEX_UNTIL_WORKSPACE = "^(\\/.*?\\/.*?\\/.*?\\/)";
+
     private static final String EMPTY_STRING = "";
 
     private static final String REGEX_SLASH = "/";
@@ -42,6 +44,11 @@ public final class Mapper {
 
     public static String mapUrlToDeleteProject(String endPoint) {
         Matcher matches = Pattern.compile(REGEX_UNTIL_PROJECT).matcher(endPoint);
+        return matches.find() ? matches.group() : EMPTY_STRING;
+    }
+
+    public static String mapUrlToDeleteWorkspace(String endPoint) {
+        Matcher matches = Pattern.compile(REGEX_UNTIL_WORKSPACE).matcher(endPoint);
         return matches.find() ? matches.group() : EMPTY_STRING;
     }
 
