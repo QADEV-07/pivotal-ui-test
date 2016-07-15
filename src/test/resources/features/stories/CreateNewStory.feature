@@ -10,8 +10,8 @@ Feature: Create new story in project from pivotal tracker
   @project
   Scenario: Create new story
     Given I enter to projectTest
-    And I create a new story
-      | STORY_TITLE | storyTest |
-    Then I validate fields
-      | STORY_TITLE | storyTest |
+#    And I create a new story
+#      | STORY_TITLE | storyTest |
+#    Then I validate fields
+#      | STORY_TITLE | storyTest |
 

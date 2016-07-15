@@ -42,6 +42,8 @@ public class ApiResourcesSteps {
 
     @When("^I sen(?:d|t) a POST request to (.*?)$")
     public void iSendAPOSTRequestWith(String endPoint, Map<String, Object> parameters) {
+        System.out.println(endPoint);
+        System.out.println(parameters);
         response = postRequest(mapEndpoint(endPoint), parameters);
     }
 

@@ -3,16 +3,30 @@ package com.fundacionjala.pivotal.pages;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fundacionjala.pivotal.framework.util.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.fundacionjala.pivotal.framework.util.CommonMethods.*;
+import static com.fundacionjala.pivotal.framework.util.CommonMethods.enableCheckBox;
 import static com.fundacionjala.pivotal.framework.util.CommonMethods.selectAElementComboBox;
-import static com.fundacionjala.pivotal.pages.SettingSteps.*;
+import static com.fundacionjala.pivotal.framework.util.CommonMethods.setWebElement;
+import static com.fundacionjala.pivotal.pages.SettingSteps.ALLOW_API_ACCESS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.BUGSCHORESMAYBEGIVENPOINTS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.DESCRIPTION;
+import static com.fundacionjala.pivotal.pages.SettingSteps.ENABLE_INCOMING_EMAIL;
+import static com.fundacionjala.pivotal.pages.SettingSteps.ENABLE_RSS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.ENABLE_TASKS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.HIDE_EMAIL_ADDRESSES;
+import static com.fundacionjala.pivotal.pages.SettingSteps.INITIAL_VELOCITY;
+import static com.fundacionjala.pivotal.pages.SettingSteps.ITERATION_LENGTH;
+import static com.fundacionjala.pivotal.pages.SettingSteps.NUMBER_OF_DONE_ITERATION_SHOW;
+import static com.fundacionjala.pivotal.pages.SettingSteps.PLAN_CURRENT_ITERATION;
+import static com.fundacionjala.pivotal.pages.SettingSteps.POINT_SCALE;
+import static com.fundacionjala.pivotal.pages.SettingSteps.PROJECT_START_DATE;
+import static com.fundacionjala.pivotal.pages.SettingSteps.PROJECT_TIME_ZONE;
+import static com.fundacionjala.pivotal.pages.SettingSteps.PUBLIC_ACCESS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.TITLE_PROJECTS;
+import static com.fundacionjala.pivotal.pages.SettingSteps.VELOCITY_STRATEGY;
 
 /**
  * Created by mijhailvillarroel on 7/11/2016.
@@ -101,7 +115,7 @@ public class GeneralSettingForm extends BasePage {
         strategyMap.put(PLAN_CURRENT_ITERATION, () -> setProjectAutomaticPlanningCheckBox(Boolean.parseBoolean(values.get(PLAN_CURRENT_ITERATION).toString())));
         strategyMap.put(ENABLE_TASKS, () -> setProjectEnableTasksCheckbox(Boolean.parseBoolean(values.get(ENABLE_TASKS).toString())));
         strategyMap.put(ALLOW_API_ACCESS, () -> setProjectAPIAccessCheckbox(Boolean.parseBoolean(values.get(ALLOW_API_ACCESS).toString())));
-        strategyMap.put(REQUIRE_HTTPS_FOR_API_ACESS, () -> setProjectUseHttpsCheckBox(Boolean.parseBoolean(values.get(REQUIRE_HTTPS_FOR_API_ACESS).toString())));
+//        strategyMap.put(REQUIRE_HTTPS_FOR_API_ACESS, () -> setProjectUseHttpsCheckBox(Boolean.parseBoolean(values.get(REQUIRE_HTTPS_FOR_API_ACESS).toString())));
         strategyMap.put(ENABLE_RSS, () -> setProjectAtomRssCheckBox(Boolean.parseBoolean(values.get(ENABLE_RSS).toString())));
         strategyMap.put(PUBLIC_ACCESS, () -> setProjectPublicAccessCheckBox(Boolean.parseBoolean(values.get(PUBLIC_ACCESS).toString())));
         strategyMap.put(ENABLE_INCOMING_EMAIL, () -> setProjectEnableIncomingEmailCheckBox(Boolean.parseBoolean(values.get(ENABLE_INCOMING_EMAIL).toString())));

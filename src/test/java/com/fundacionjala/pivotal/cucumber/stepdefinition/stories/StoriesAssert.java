@@ -1,7 +1,5 @@
 package com.fundacionjala.pivotal.cucumber.stepdefinition.stories;
 
-import java.util.Map;
-
 import com.fundacionjala.pivotal.pages.Dashboard;
 import com.fundacionjala.pivotal.pages.ToolBar;
 import com.fundacionjala.pivotal.pages.stories.StoriesSteps;
@@ -32,10 +30,10 @@ public class StoriesAssert {
         assertEquals(value, storiesStepsDef.getStory().getNameStory());
     }
 
-    @Then("^I validate fields$")
-    public void iValidateFields(final Map<StoriesSteps, Object> values) {
-        dashboard = toolBar.clickOnDashboardLink();
-    }
+//    @Then("^I validate fields$")
+//    public void iValidateFields(final Map<StoriesSteps, Object> values) {
+//        dashboard = toolBar.clickOnDashboardLink();
+//    }
     
     @Then("^I expect the message (.*)$")
     public void iExpectTheMessageStoryDeleted(String message) {

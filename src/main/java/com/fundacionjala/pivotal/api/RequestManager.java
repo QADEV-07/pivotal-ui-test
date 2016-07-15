@@ -20,6 +20,10 @@ public final class RequestManager {
     }
 
     public static Response postRequest(String endpoint, Map<String, Object> parameters) {
+
+        System.out.println(endpoint);
+        System.out.println(parameters);
+
         return given().spec(REQUEST).params(parameters)
                 .when().post(endpoint);
     }
