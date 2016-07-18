@@ -2,12 +2,12 @@ Feature: Workspace with Projects
 
   Background: I have projects created
     Given I send a POST request to /projects
-      | name   | project3444 |
-      | public | true        |
-#    And stored as ProjectW
+      | name   | test |
+      | public | true |
     Given I login with credentials valid
+    When I am on Pivotal Dashboard page
 
-  @DeleteWorkspace
+  @DeleteWorkspace @project
   Scenario: Add project to Workspace created
 
     Given I am on Pivotal Create Workspace form
@@ -17,5 +17,5 @@ Feature: Workspace with Projects
     And I  click on list projects icon
     When I select the project created previously
     And I click on Save Workspace button
-    Then I expect a workspace with the selected project
+    Then I expect a workspace with the test project name
 
