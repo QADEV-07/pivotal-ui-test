@@ -1,14 +1,13 @@
 Feature: Workspace with Projects
 
-  @project
   Background: I have projects created
     Given I send a POST request to /projects
       | name   | project3444 |
       | public | true        |
-    And stored as ProjectW
+#    And stored as ProjectW
     Given I login with credentials valid
 
-  @workspace
+  @DeleteWorkspace
   Scenario: Add project to Workspace created
 
     Given I am on Pivotal Create Workspace form

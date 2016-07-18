@@ -1,12 +1,13 @@
-package com.fundacionjala.pivotal.pages;
+package com.fundacionjala.pivotal.pages.Workspaces;
 
+import com.fundacionjala.pivotal.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Created by danielgonzales on 7/13/2016.
+ * Created by danielgonzales
  */
-public class SideBarWorkspace extends BasePage{
+public class SideBarWorkspace extends BasePage {
 
     @FindBy(xpath = "//button[contains(.,'add projects')]")
     private WebElement addProjectLink;
@@ -25,11 +26,11 @@ public class SideBarWorkspace extends BasePage{
         addProjectLink.click ();
     }
 
-    public void clicklistProjectLink () {
+    public void clickListProjectLink () {
         listProjectLink.click ();
     }
 
-    public void clickidProjectLink () {
+    public void clickIdProjectLink () {
         idProjectLink.click ();
     }
 

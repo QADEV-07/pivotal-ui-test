@@ -1,7 +1,8 @@
-package com.fundacionjala.pivotal.pages;
+package com.fundacionjala.pivotal.pages.Workspaces;
 
 import java.util.concurrent.TimeUnit;
 
+import com.fundacionjala.pivotal.pages.BasePage;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -11,32 +12,22 @@ import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_FAIL_W
 import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_WAIT_TIME;
 
 /**
- * Created by Daniel
+ * Created by DanielGonzales
  */
-public class Workspace extends BasePage {
+public class ToolBarWorkspace extends BasePage {
 
     private static Logger LOGGER = Logger.getLogger(Workspace.class.getSimpleName());
 
-    private SideBarWorkspace sideBarWorkspace;
-
-    private ToolBarWorkspace toolBarWorkspace;
+    @FindBy(css = "._2PRWz__projectNavTab._3Sgdh__projectNavTab--clickable")
+    private WebElement settingsWorkspaceLink;
 
     @FindBy(className = "raw_context_name")
     private WebElement workspaceNameText;
 
-    @FindBy(css = ".tc_header_item.tc_header_logo")
-    private WebElement returnDashboardLink;
 
-    public Workspace(){
-
-        sideBarWorkspace = new SideBarWorkspace ();
-
-        toolBarWorkspace = new ToolBarWorkspace();
-    }
-
-    public Dashboard clickReturnDashboardLink() {
-        returnDashboardLink.click();
-        return new Dashboard ();
+    public SettingWorkspace clickSettingsWorkspaceLink(){
+        settingsWorkspaceLink.click();
+        return new SettingWorkspace();
     }
 
     public String getWorkspaceNameText() {
@@ -51,10 +42,4 @@ public class Workspace extends BasePage {
         }
         return workspaceName;
     }
-
-    public SideBarWorkspace getSideWorkspace(){
-        return sideBarWorkspace;
-    }
-
-    public ToolBarWorkspace getToolBarWorkspace(){return toolBarWorkspace;}
 }

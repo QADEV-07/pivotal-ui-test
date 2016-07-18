@@ -1,5 +1,7 @@
-package com.fundacionjala.pivotal.pages;
+package com.fundacionjala.pivotal.pages.Workspaces;
 
+import com.fundacionjala.pivotal.pages.BasePage;
+import com.fundacionjala.pivotal.pages.ToolBar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -37,7 +39,7 @@ public class SettingWorkspace extends BasePage {
 
     public DeleteWorkspace clickDeleteWorkspaceLink() {
         deleteWorkspaceLink.click();
-        return new DeleteWorkspace();
+        return new DeleteWorkspace ();
     }
 
     public void clickSaveChangesWorkspaceLink() {

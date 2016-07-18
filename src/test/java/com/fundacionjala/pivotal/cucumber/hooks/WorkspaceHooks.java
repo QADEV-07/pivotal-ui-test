@@ -1,30 +1,34 @@
 package com.fundacionjala.pivotal.cucumber.hooks;
 
-import com.fundacionjala.pivotal.cucumber.stepdefinition.api.ApiResourcesSteps;
+import com.fundacionjala.pivotal.api.RequestManager;
+import com.fundacionjala.pivotal.cucumber.stepdefinition.workspace.WorkspaceStepDef;
+import com.fundacionjala.pivotal.pages.Workspaces.Workspace;
+import com.jayway.restassured.response.Response;
 import cucumber.api.java.After;
 
-import static com.fundacionjala.pivotal.api.Mapper.mapUrlToDeleteProject;
-import static com.fundacionjala.pivotal.api.RequestManager.deleteRequest;
-
 /**
- * Created by Zeus on 15/07/2016.
+ * Created by DanielGonzales
  */
 public class WorkspaceHooks {
 
-    private static final int SUCCESS_STATUS_CODE = 200;
+    private static final String WORKSPACES_ENDPOINT = "/my/workspaces/";
 
-    private static final int DELETE_STATUS_CODE = 204;
+    private WorkspaceStepDef workspaceStepDef;
 
-    private ApiResourcesSteps api;
-
-    public WorkspaceHooks(ApiResourcesSteps api) {
-        this.api = api;
+    public WorkspaceHooks(WorkspaceStepDef workspaceStepDef) {
+        this.workspaceStepDef = workspaceStepDef;
     }
 
-    @After("@workspace")
-    public void afterStoryScenario() {
-        if (api.getResponse().statusCode() == SUCCESS_STATUS_CODE || api.getResponse().statusCode() == DELETE_STATUS_CODE) {
-            deleteRequest(mapUrlToDeleteProject(api.getEndPoint()));
-        }
+    @After("@DeleteWorkspace")
+    public void DeleteWorkspace() {
+        Workspace workspace = workspaceStepDef.getWorkspace();
+        String id = WORKSPACES_ENDPOINT + workspace.getIdWorkspace();
+        Response response = RequestManager.deleteRequest(id);
+        workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
+    }
+
+    @After("@ReturnDashboard")
+    public void ReturnDashboard() {
+        workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
     }
 }

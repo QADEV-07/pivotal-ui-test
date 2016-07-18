@@ -11,8 +11,8 @@ Feature: Delete and Put a Workspace
     And I click on Delete link and confirm
     Then I expect the next message: workspace3449 was successfully deleted.
 
-  @workspace
-  Scenario: Edit Workspace
+  @DeleteWorkspace
+  Scenario: Edit Name Workspace
 
     Given I click on workspace3449 created
     When I click on Settings of SideBar

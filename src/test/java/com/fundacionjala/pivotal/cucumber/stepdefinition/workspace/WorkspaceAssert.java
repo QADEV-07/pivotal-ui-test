@@ -14,6 +14,8 @@ public class WorkspaceAssert {
 
     private WorkspaceStepDef workspaceStepDef;
 
+    private static final String SAVED_MESSAGE = "Changes saved.";
+
     public WorkspaceAssert (WorkspaceStepDef workspaceStepDef) {
         this.workspaceStepDef = workspaceStepDef;
     }
@@ -26,25 +28,22 @@ public class WorkspaceAssert {
 
     @And("^the display name equals to (.*)$")
     public void theDisplayNameEqualsTo (String workspaceName) {
-        assertEquals (workspaceName, workspaceStepDef.getWorkspace ().getWorkspaceNameText ());
-        workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
+        assertEquals (workspaceName, workspaceStepDef.getWorkspace ().getToolBarWorkspace ().getWorkspaceNameText ());
+
     }
 
     @Then("^I expect a workspace with the selected project$")
     public void iExpectAWorkspaceWithTheProjectSelected (String nameProject) {
-        assertEquals (nameProject, workspaceStepDef.getWorkspace ().getWorkspaceNameText ());
+        assertEquals (nameProject, workspaceStepDef.getWorkspace ().getProjectIntoWorkspaceNameText ());
     }
 
     @Then("^I expect the next message: (.*)$")
     public void iExpectTheNextMessageWorkspaceWasSuccessfullyDeleted(String message) {
-        if(message.equalsIgnoreCase("Changes saved.")){
+        if(SAVED_MESSAGE.equalsIgnoreCase(message)){
             assertEquals(message, workspaceStepDef.getSettingWorkspace().getMessageChangesWorkspace());
         }
         else {
             assertEquals(message, workspaceStepDef.getDashboard().getMessageDeleteWorkspace());
         }
-
-        workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
-
     }
 }

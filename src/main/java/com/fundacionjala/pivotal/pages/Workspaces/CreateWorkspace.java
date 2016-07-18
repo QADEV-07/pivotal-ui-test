@@ -1,5 +1,6 @@
-package com.fundacionjala.pivotal.pages;
+package com.fundacionjala.pivotal.pages.Workspaces;
 
+import com.fundacionjala.pivotal.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -28,7 +29,7 @@ public class CreateWorkspace extends BasePage {
 
     /**
      *
-     * @return Workspace
+     * @return Workspaces
      */
     public Workspace clickCreateWorkspaceLink() {
         createWorkspaceLink.click();

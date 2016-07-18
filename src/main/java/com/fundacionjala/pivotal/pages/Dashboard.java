@@ -2,6 +2,8 @@ package com.fundacionjala.pivotal.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import com.fundacionjala.pivotal.pages.Workspaces.CreateWorkspace;
+import com.fundacionjala.pivotal.pages.Workspaces.Workspace;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -43,7 +45,7 @@ public class Dashboard extends BasePage {
      */
     public CreateWorkspace clickCreateWorkspaceLink() {
         createWorkspaceLink.click();
-        return new CreateWorkspace();
+        return new CreateWorkspace ();
     }
 
     /**

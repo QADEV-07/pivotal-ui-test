@@ -1,18 +1,18 @@
 package com.fundacionjala.pivotal.cucumber.stepdefinition.workspace;
 
 import com.fundacionjala.pivotal.cucumber.stepdefinition.login.LoginStepDef;
-import com.fundacionjala.pivotal.pages.CreateWorkspace;
+import com.fundacionjala.pivotal.pages.Workspaces.CreateWorkspace;
 import com.fundacionjala.pivotal.pages.Dashboard;
-import com.fundacionjala.pivotal.pages.DeleteWorkspace;
-import com.fundacionjala.pivotal.pages.SettingWorkspace;
-import com.fundacionjala.pivotal.pages.SideBarWorkspace;
-import com.fundacionjala.pivotal.pages.Workspace;
+import com.fundacionjala.pivotal.pages.Workspaces.DeleteWorkspace;
+import com.fundacionjala.pivotal.pages.Workspaces.SettingWorkspace;
+import com.fundacionjala.pivotal.pages.Workspaces.SideBarWorkspace;
+import com.fundacionjala.pivotal.pages.Workspaces.Workspace;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
 /**
- * Created by Daniel on 07/07/2016.
+ * Created by Daniel Gonzales
  */
 public class WorkspaceStepDef {
 
@@ -69,12 +69,12 @@ public class WorkspaceStepDef {
 
     @And("^I  click on list projects icon$")
     public void iClickOnListProjectsIcon() {
-        sideBarWorkspace.clicklistProjectLink();
+        sideBarWorkspace.clickListProjectLink ();
     }
 
     @When("^I select the project created previously$")
     public void iSelectTheProjectCreatedPreviously() {
-        sideBarWorkspace.clickidProjectLink();
+        sideBarWorkspace.clickIdProjectLink ();
     }
 
     @And("^I click on Save Workspace button$")
