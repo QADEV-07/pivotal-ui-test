@@ -29,22 +29,19 @@ public class WorkspaceAssert {
     @And("^the display name equals to (.*)$")
     public void theDisplayNameEqualsTo (String workspaceName) {
         assertEquals (workspaceName, workspaceStepDef.getWorkspace ().getToolBarWorkspace ().getWorkspaceNameText ());
-
     }
 
     @Then("^I expect a workspace with the (.*) project name$")
     public void iExpectAWorkspaceWithTheProjectSelected (String nameProject) {
         assertEquals (nameProject.toUpperCase (), workspaceStepDef.getWorkspace ().getProjectIntoWorkspaceNameText ());
-
     }
 
     @Then("^I expect the next message: (.*)$")
-    public void iExpectTheNextMessageWorkspaceWasSuccessfullyDeleted(String message) {
-        if(SAVED_MESSAGE.equalsIgnoreCase(message)){
-            assertEquals(message, workspaceStepDef.getSettingWorkspace().getMessageChangesWorkspace());
-        }
-        else {
-            assertEquals(message, workspaceStepDef.getDashboard().getMessageDeleteWorkspace());
+    public void iExpectTheNextMessageWorkspaceWasSuccessfullyDeleted (String message) {
+        if (SAVED_MESSAGE.equalsIgnoreCase (message)) {
+            assertEquals (message, workspaceStepDef.getSettingWorkspace ().getMessageChangesWorkspace ());
+        } else {
+            assertEquals (message, workspaceStepDef.getDashboard ().getMessageDeleteWorkspace ());
         }
     }
 }

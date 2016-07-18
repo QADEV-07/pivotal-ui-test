@@ -4,12 +4,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.fundacionjala.pivotal.pages.BasePage;
-import com.fundacionjala.pivotal.pages.Dashboard;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.fundacionjala.pivotal.pages.BasePage;
+import com.fundacionjala.pivotal.pages.Dashboard;
 
 import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_FAIL_WAIT_TIME;
 import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_WAIT_TIME;

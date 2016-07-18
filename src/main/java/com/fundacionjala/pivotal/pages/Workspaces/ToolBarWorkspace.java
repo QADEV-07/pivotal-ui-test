@@ -2,11 +2,12 @@ package com.fundacionjala.pivotal.pages.Workspaces;
 
 import java.util.concurrent.TimeUnit;
 
-import com.fundacionjala.pivotal.pages.BasePage;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.fundacionjala.pivotal.pages.BasePage;
 
 import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_FAIL_WAIT_TIME;
 import static com.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_WAIT_TIME;

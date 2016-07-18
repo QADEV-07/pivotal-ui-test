@@ -18,4 +18,3 @@ Feature: Workspace with Projects
     When I select the project created previously
     And I click on Save Workspace button
     Then I expect a workspace with the test project name
-

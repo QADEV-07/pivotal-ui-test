@@ -1,9 +1,10 @@
 package com.fundacionjala.pivotal.pages.Workspaces;
 
-import com.fundacionjala.pivotal.pages.BasePage;
-import com.fundacionjala.pivotal.pages.ToolBar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.fundacionjala.pivotal.pages.BasePage;
+import com.fundacionjala.pivotal.pages.ToolBar;
 
 /**
  * Created by danielgonzales
@@ -28,33 +29,33 @@ public class SettingWorkspace extends BasePage {
     private WebElement messageChangesWorkspace;
 
 
-    public SettingWorkspace() {
-        toolBar = new ToolBar();
+    public SettingWorkspace () {
+        toolBar = new ToolBar ();
     }
 
-    public void setNameWorkspaceTestField(String workspaceName) {
-        workspaceNameText.clear();
-        workspaceNameText.sendKeys(workspaceName);
+    public void setNameWorkspaceTestField (String workspaceName) {
+        workspaceNameText.clear ();
+        workspaceNameText.sendKeys (workspaceName);
     }
 
-    public DeleteWorkspace clickDeleteWorkspaceLink() {
-        deleteWorkspaceLink.click();
+    public DeleteWorkspace clickDeleteWorkspaceLink () {
+        deleteWorkspaceLink.click ();
         return new DeleteWorkspace ();
     }
 
-    public void clickSaveChangesWorkspaceLink() {
-        saveChangesWorkspaceLink.click();
+    public void clickSaveChangesWorkspaceLink () {
+        saveChangesWorkspaceLink.click ();
     }
 
-    public void cancelChangesWorkspaceLink() {
-        cancelChangesWorkspaceLink.click();
+    public void cancelChangesWorkspaceLink () {
+        cancelChangesWorkspaceLink.click ();
     }
 
-    public String getMessageChangesWorkspace() {
-        return messageChangesWorkspace.getText();
+    public String getMessageChangesWorkspace () {
+        return messageChangesWorkspace.getText ();
     }
 
-    public ToolBar getToolBar() {
+    public ToolBar getToolBar () {
         return toolBar;
     }
 }

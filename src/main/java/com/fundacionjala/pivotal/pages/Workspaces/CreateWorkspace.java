@@ -1,8 +1,9 @@
 package com.fundacionjala.pivotal.pages.Workspaces;
 
-import com.fundacionjala.pivotal.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.fundacionjala.pivotal.pages.BasePage;
 
 /**
  * Created by Daniel

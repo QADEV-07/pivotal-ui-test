@@ -22,8 +22,8 @@ public class WorkspaceHooks {
     @After("@DeleteWorkspace")
     public void DeleteWorkspace() {
         Workspace workspace = workspaceStepDef.getWorkspace();
-        String id = WORKSPACES_ENDPOINT + workspace.getIdWorkspace();
-        Response response = RequestManager.deleteRequest(id);
+        String endPointDeleteWorkspace = WORKSPACES_ENDPOINT.concat (workspace.getIdWorkspace());
+        Response response = RequestManager.deleteRequest(endPointDeleteWorkspace);
         workspaceStepDef.getWorkspace ().clickReturnDashboardLink ();
     }
 
