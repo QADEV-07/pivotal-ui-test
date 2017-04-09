@@ -1,5 +1,8 @@
 package org.fundacionjala.pivotal.pages.setting;
 
+/**
+ * Enum class for settings.
+ */
 public enum SettingSteps {
 
     DESCRIPTION,
@@ -8,7 +11,7 @@ public enum SettingSteps {
     ITERATION_LENGTH,
     POINT_SCALE,
     INITIAL_VELOCITY,
-    NUMBER_OF_DONE_ITERATION_SHOW,
+    DONE_ITERATION_SHOW,
     PLAN_CURRENT_ITERATION,
     ENABLE_TASKS,
     ALLOW_API_ACCESS,
