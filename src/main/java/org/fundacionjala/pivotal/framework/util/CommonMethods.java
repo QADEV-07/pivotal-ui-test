@@ -185,4 +185,9 @@ public final class CommonMethods {
         LOGGER.info("Element null " + message);
         Runtime.getRuntime().runFinalization();
     }
+
+    public static String getTextForElement(WebElement webElement)
+    {
+        return webElement.getText();
+    }
 }

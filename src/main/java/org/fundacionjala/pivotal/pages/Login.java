@@ -17,8 +17,8 @@ public class Login extends BasePage {
 
     private static final PropertiesInfo PROPERTIES_INFO = PropertiesInfo.getInstance();
 
-    @FindBy(id = "credentials_username")
-    private WebElement userNameTestField;
+    @FindBy(css = "input[id=credentials_username]")
+    private WebElement userNameTextField;
 
     @FindBy(id = "credentials_password")
     private WebElement passwordTestField;
@@ -27,7 +27,7 @@ public class Login extends BasePage {
     private WebElement signInBtn;
 
     public void setUserNameTestField(String username) {
-        CommonMethods.setWebElement(userNameTestField, username);
+        CommonMethods.setWebElement(userNameTextField, username);
     }
 
     public void setPasswordTestField(String password) {
@@ -36,7 +36,11 @@ public class Login extends BasePage {
 
     public static Dashboard loginAs(String userName, String password) {
         Dashboard dashboard = new Dashboard();
-        if (!dashboard.getUserNameText().equalsIgnoreCase(dashboard.getUserName(userName))) {
+         String res1=dashboard.getUserNameText();
+         //String res2=dashboard.getUserName(userName);
+         System.out.println("rest"+res1);
+         //System.out.println("res2"+res2);
+        if (!(res1.equalsIgnoreCase(userName))) {
             PivotalHome pivotalHome = new PivotalHome();
             Login login = pivotalHome.clickSingInLink();
             login.setUserNameTestField(userName);

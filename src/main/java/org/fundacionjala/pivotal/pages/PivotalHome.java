@@ -11,7 +11,7 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
  */
 public class PivotalHome extends BasePage {
 
-    @FindBy(css = ".btn-login")
+    @FindBy(css = "div.header__lg a[tabindex='1']")
     private WebElement signInLink;
 
     public PivotalHome() {

@@ -97,7 +97,6 @@ public class Dashboard extends BasePage {
             userName = userNameText.getText();
         } catch (NoSuchElementException e) {
             LOGGER.warn("User name element not found", e);
-
         } finally {
             driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIME, SECONDS);
         }

@@ -1,5 +1,6 @@
 package org.fundacionjala.pivotal.framework.selenium;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -44,6 +45,7 @@ public class DriverManager {
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(LOAD_PAGE_TIME, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.get("https://www.pivotaltracker.com");
         wait = new WebDriverWait(driver, WAIT_TIME);
     }
 
