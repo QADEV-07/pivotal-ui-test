@@ -9,9 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebElement;
 
 /**
- * This class represents Account page and its characteristics.
+ * This class represents Accounts page and its characteristics.
  *
  * @author Bruno Barrios
+ * @version      %I%, %G%
+ * @since        1.0
  */
 public class Accounts extends BasePage {
 
@@ -35,6 +37,7 @@ public class Accounts extends BasePage {
     private WebElement createNewAccountBtn;
 
     /**
+     * Class constructor,
      * This class instances a ToolBarAccount.
      */
     public Accounts() {
@@ -63,6 +66,8 @@ public class Accounts extends BasePage {
     }
 
     /**
+     * This method clicks the new account button displayed on the page.
+     *
      * @return {@link CreateAccountForm}
      */
     public CreateAccountForm clickNewAccountBtn() {
@@ -70,14 +75,30 @@ public class Accounts extends BasePage {
         return new CreateAccountForm();
     }
 
+    /**
+     * it returns the web element that represents
+     * the manage accounts button.
+     *
+     * @return the web element from the instance
+     */
     public WebElement getManageAccountBtn() {
         return manageAccountBtn;
     }
 
+    /**
+     * It gives us the tool bar account that is present on the instance.
+     *
+     * @return the tool bar account instance
+     */
     public ToolBarAccount getToolBarAccount() {
         return toolBarAccount;
     }
 
+    /**
+     * The method returns the tool bar instance.
+     *
+     * @return the tool bar retrieved from the instance
+     */
     public ToolBar getToolBar() {
         return new ToolBar();
     }

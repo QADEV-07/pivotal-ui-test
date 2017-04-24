@@ -12,9 +12,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 
 /**
- * This class contains the web elements from side bar
+ * This class contains the web elements from side bar.
  *
- * @author Rosario Garcia
+ * @author       Rosario Garcia
+ * @version      %I%, %G%
+ * @since        1.0
  */
 public class SideBarStories extends BasePage {
 
@@ -22,17 +24,19 @@ public class SideBarStories extends BasePage {
 
     private static final Logger LOGGER = Logger.getLogger(Project.class.getName());
 
+    private static final int SLEEP = 10000;
+
     @FindBy(css = ".button.add_story")
     private WebElement addStoryButton;
 
     /**
-     * Method to do click on the button "Add Story"
+     * Method that clicks the button "Add Story".
      *
-     * @return a Story object
+     * @return the Story object instance
      */
     public Story clickOnAddStoryButton() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(SLEEP);
             driver.findElement(By.cssSelector(".button.add_story"));
             addStoryButton.click();
         } catch (NoSuchElementException e) {

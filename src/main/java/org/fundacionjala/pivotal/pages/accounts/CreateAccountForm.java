@@ -8,7 +8,12 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.isElementPr
 import static org.fundacionjala.pivotal.framework.util.CommonMethods.setWebElement;
 
 /**
- * Created by brunobarrios on 7/21/2016.
+ * Class that represents the create
+ * account form with all its characteristics.
+ *
+ * @author       Bruno Barrios
+ * @version      %I%, 7/21/2016
+ * @since        1.0
  */
 public class CreateAccountForm extends BasePage {
 
@@ -21,15 +26,33 @@ public class CreateAccountForm extends BasePage {
     @FindBy(id = "error")
     private WebElement errorMessageAtCreateAccount;
 
+    /**
+     * Method that puts the account name
+     * on the text field web element.
+     *
+     * @param accountName the account name to be inserted
+     */
     public void setAccountNameTextField(String accountName) {
         setWebElement(accountNameTextField, accountName);
     }
 
+    /**
+     * Method that clicks the create account button
+     * and then goes to the Accounts page.
+     *
+     * @return the Accounts page instance
+     */
     public Accounts clickCreateAccountBtn() {
         createNewAccountBtn.click();
         return new Accounts();
     }
 
+    /**
+     * Method that saves the error message in the
+     * case that the account thorws an exception.
+     *
+     * @return the error message returned as string.
+     */
     public String getErrorMessageAtCreateAccount() {
         String errorMessage = "";
         if (isElementPresent(errorMessageAtCreateAccount)) {

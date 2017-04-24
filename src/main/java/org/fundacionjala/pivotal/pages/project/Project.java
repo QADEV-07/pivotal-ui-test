@@ -15,7 +15,11 @@ import static org.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_PROJEC
 import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 
 /**
- * Created by Bruno on 7/7/2016.
+ * Class that represents the project main page.
+ *
+ * @author      Bruno Barrios
+ * @version      %I%, 7/7/2016
+ * @since        1.0
  */
 public class Project extends BasePage {
 
@@ -27,9 +31,17 @@ public class Project extends BasePage {
     @FindBy(css = "[data-aid='navTab-settings']")
     private WebElement settings;
 
+    private static final int TIMEOUT = 45;
+
+    /**
+     * Method that clicks the Settings tab
+     * and returns the Settings instance.
+     *
+     * @return the Settings instance
+     */
     public Setting clickSettingTab() {
         try {
-            wait.withTimeout(45, TimeUnit.SECONDS);
+            wait.withTimeout(TIMEOUT, TimeUnit.SECONDS);
             clickWebElement(settings);
         } catch (NoSuchElementException e) {
             LOGGER.warn("The click tab Setting Element could not be found", e);
@@ -44,6 +56,12 @@ public class Project extends BasePage {
         return new Setting();
     }
 
+    /**
+     * Method that verifies that the project title
+     * is displayed or not.
+     *
+     * @return the boolean value for the title displayed
+     */
     public boolean isProjectTitleDisplayed() {
         boolean projectTitleDisplayed = false;
         try {
@@ -59,6 +77,11 @@ public class Project extends BasePage {
         return projectTitleDisplayed;
     }
 
+    /**
+     * Method that retrieves the project title.
+     *
+     * @return the project title value
+     */
     public String getTitle() {
         String projectTitle = "";
         try {
