@@ -11,10 +11,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 /**
  * Abstract class that acts as a template for the rest of subclasses
  * that will be invoked for Pivotal Tracker project.
- *
- * @author       Rosario Garcia
- * @version      %I%, %G%
- * @since        1.0
  */
 public abstract class BasePage {
 

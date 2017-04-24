@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriverException;
 /**
  * This class handles the logic related to what
  * kind of browser will be used in the test.
- *
- * @author      Henrry Salinas
- * @version     %I%, %G%
- *  @since      1.0
  */
 public final class FactoryDriver {
 

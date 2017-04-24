@@ -13,10 +13,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 
 /**
  * This class contains the web elements from side bar.
- *
- * @author       Rosario Garcia
- * @version      %I%, %G%
- * @since        1.0
  */
 public class SideBarStories extends BasePage {
 

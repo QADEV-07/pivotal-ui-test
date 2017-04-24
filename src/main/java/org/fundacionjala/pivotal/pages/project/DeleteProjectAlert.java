@@ -11,10 +11,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
 /**
  * Class that lets us confirm the deletion
  * of the project on the browser popup.
- *
- * @author       Mijhail Villarroel.
- * @version      %I%, 7/21/2016
- * @since        1.0
  */
 public class DeleteProjectAlert extends BasePage {
 

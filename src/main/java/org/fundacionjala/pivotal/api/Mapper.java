@@ -12,10 +12,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.REGEX_INSIDE_BR
 
 /**
  *  It configures the methods to map ids and responses.
- *
- *  @author     Henrry Salinas
- *  @version    %I%, %G%
- *  @since      1.0
  */
 public final class Mapper {
 

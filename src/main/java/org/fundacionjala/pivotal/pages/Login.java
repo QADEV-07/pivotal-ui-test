@@ -10,10 +10,6 @@ import org.fundacionjala.pivotal.framework.util.PropertiesInfo;
 /**
  * The class represents the Pivotal Tracker
  * login page with all the needed elements.
- *
- * @author       Mijhail Villarroel
- * @version      %I%, %G%
- * @since        1.0
  */
 public class Login extends BasePage {
 

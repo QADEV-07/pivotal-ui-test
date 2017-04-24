@@ -11,10 +11,6 @@ import static io.restassured.RestAssured.given;
  *  This manager method provides the necessary methods
  *  that manage the Pivotal Tracker API REST requests
  *  like GET, POST, PUT, and DELETE.
- *
- *  @author     Henrry Salinas
- *  @version    %I%, %G%
- *  @since      1.0
  */
 public final class RequestManager {
 

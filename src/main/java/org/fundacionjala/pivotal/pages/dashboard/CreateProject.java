@@ -19,10 +19,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.setCheckBox
 
 /**
  * Class that represents the options inside a create project page.
- *
- * @author       Bruno Barrios
- * @version      %I%, 7/21/2016
- * @since        1.0
  */
 public class CreateProject extends BasePage {
 

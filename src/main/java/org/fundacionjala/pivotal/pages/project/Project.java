@@ -16,10 +16,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 
 /**
  * Class that represents the project main page.
- *
- * @author      Bruno Barrios
- * @version      %I%, 7/7/2016
- * @since        1.0
  */
 public class Project extends BasePage {
 

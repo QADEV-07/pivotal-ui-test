@@ -10,10 +10,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.setWebEleme
 /**
  * Class that represents the create
  * account form with all its characteristics.
- *
- * @author       Bruno Barrios
- * @version      %I%, 7/21/2016
- * @since        1.0
  */
 public class CreateAccountForm extends BasePage {
 

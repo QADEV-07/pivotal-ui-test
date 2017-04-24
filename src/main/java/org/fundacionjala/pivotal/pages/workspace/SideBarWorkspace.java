@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Class that represernts the side bar in the workspace page.
- *
- * @author      Daniel Gonzales
  */
 public class SideBarWorkspace extends BasePage {
 

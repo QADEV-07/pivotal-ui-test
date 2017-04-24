@@ -26,10 +26,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
 
 /**
  * This class represents the Dashboard page.
- *
- * @author       Mijhail Villarroel, Bruno Barrios, Daniel Gonzales, Rosario Garcia.
- * @version      %I%, 7/21/2016
- * @since        1.0
  */
 public class Dashboard extends BasePage {
 

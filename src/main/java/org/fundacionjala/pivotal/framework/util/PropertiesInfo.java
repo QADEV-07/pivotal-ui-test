@@ -11,10 +11,6 @@ import org.apache.log4j.Logger;
  * Class that obtains the properties defined that will
  * be filled inside the properties file and then to be
  * used on automated tests.
- *
- * @author       Rosario Garcia
- * @version      %I%, %G%
- * @since        1.0
  */
 public final class PropertiesInfo {
 

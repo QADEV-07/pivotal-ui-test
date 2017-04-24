@@ -15,10 +15,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WAIT_TIME;
  * This class provides basic methods to manage
  * the Selenium driver and initialize the
  * logger main resources path.
- *
- * @author      HenrrySalinas && Bruno Barrios
- * @version     %I%, %G%
- * @since       1.0
  */
 public final class DriverManager {
 

@@ -11,10 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * CreateWorkspace is the class to create a new Workspace.
- *
- * @author       Daniel Gonzales
- * @version      %I%, %G%
- * @since        1.0
  */
 public class CreateWorkspace extends BasePage {
 

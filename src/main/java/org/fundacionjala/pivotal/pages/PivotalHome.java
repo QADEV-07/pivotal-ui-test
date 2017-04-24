@@ -10,10 +10,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
  * Class that represents the main page of Pivotal Tracker
  * in the case that a user is not logged yet so he can click
  * the sign in button.
- *
- * @author       Mijhail Villarroel on 7/6/2016.
- * @version      7/6/2016
- * @since        1.0
  */
 public class PivotalHome extends BasePage {
 

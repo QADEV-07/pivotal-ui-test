@@ -2,10 +2,6 @@ package org.fundacionjala.pivotal.framework.util;
 
 /**
  * This class will let us use constants variables through the classes.
- *
- * @author       Bruno Barrios on 7/13/2016.
- * @version      7/13/2016
- * @since        1.0
  */
 public final class Constants {
 

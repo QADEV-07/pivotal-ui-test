@@ -15,8 +15,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_WAIT_T
 /**
  * Class that represents the Workspace page
  * tool bar with its elements to be used.
- *
- * @author      Daniel Gonzales
  */
 public class ToolBarWorkspace extends BasePage {
 

@@ -10,10 +10,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
 /**
  * Class that represents the tool bar present
  * on the account page.
- *
- * @author       Mijhail Villarroel.
- * @version   %I%, 7/21/2016
- * @since        1.0
  */
 public class ToolBar extends BasePage {
 

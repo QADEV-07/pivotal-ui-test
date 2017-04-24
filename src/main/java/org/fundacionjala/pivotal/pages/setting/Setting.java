@@ -4,8 +4,6 @@ import org.fundacionjala.pivotal.pages.dashboard.ToolBar;
 
 /**
  * Class to set the settings characteristics.
- *
- * @author Mijhail Villarroel.
  */
 public class Setting {
     private SideBarSetting sideBar;

@@ -27,10 +27,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WORKSPACES_ENDP
 
 /**
  * This class groups the generic methods.
- *
- * @author       Mijhail Villarroel
- * @version      %I%, %G%
- * @since        1.0
  */
 public final class CommonMethods {
 

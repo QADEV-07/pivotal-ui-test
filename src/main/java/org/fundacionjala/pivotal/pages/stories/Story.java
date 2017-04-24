@@ -28,10 +28,6 @@ import static org.fundacionjala.pivotal.pages.stories.StoriesSteps.STORY_TYPE;
 /**
  * This class is for test the creation, set and delete
  * of a story in a project of pivotal tracker.
- *
- * @author       RosarioGarcia
- * @version      %I%, %G%
- * @since        1.0
  */
 public class Story extends BasePage {
 

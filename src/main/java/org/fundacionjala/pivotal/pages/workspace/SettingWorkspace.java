@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Class that represents to the workspace settings with
  * its characteristics.
- *
- * @author      Daniel Gonzales
  */
 public class SettingWorkspace extends BasePage {
 

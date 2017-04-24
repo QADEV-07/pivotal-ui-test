@@ -9,10 +9,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
 /**
  * Class that represents the side bar settings placed
  * at the left of the Settings screen.
- *
- * @author      Mijhail Vvillarroel
- * @version     %I%, 7/11/16
- * @since       1.0
  */
 public class SideBarSetting extends BasePage {
 

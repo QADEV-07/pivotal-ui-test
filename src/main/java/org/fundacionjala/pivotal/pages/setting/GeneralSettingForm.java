@@ -52,10 +52,6 @@ import static org.fundacionjala.pivotal.pages.setting.SettingSteps.VELOCITY_STRA
 
 /**
  * Class that represents the project settings form.
- *
- * @author       Mijhail villarroel
- * @version      %I%, 7/11/2016
- * @since        1.0
  */
 public class GeneralSettingForm extends BasePage {
 

@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 /**
  * This interface define the methods related to initialize
  * the Selenium driver according to the browser used.
- *
- * @author       Henrry Salinas
- * @version      %I%, %G%
- * @since        1.0
  */
 @FunctionalInterface
 public interface IDriver {

@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Class that represents the icebox area.
- *
- * @author      Rosario Garcia
- * @version     %I%, %G%
- * @since       1.0
  */
 public class IceBox extends BasePage {
 

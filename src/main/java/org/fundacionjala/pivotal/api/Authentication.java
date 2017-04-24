@@ -8,10 +8,6 @@ import org.fundacionjala.pivotal.framework.util.PropertiesInfo;
 /**
  *  It establishes the connection with Pivotal Tracker.
  *  It is a singleton class.
- *
- *  @author     Henrry Salinas
- *  @version    %I%, %G%
- *  @since      1.0
  */
 public final class Authentication {
 

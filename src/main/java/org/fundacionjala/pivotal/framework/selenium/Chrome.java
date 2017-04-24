@@ -5,10 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class initializes the Chrome Selenium Web Driver.
- *
- * @author      Henrry Salinas
- * @version    %I%, %G%
- * @since      1.0
  */
 public class Chrome implements IDriver {
 

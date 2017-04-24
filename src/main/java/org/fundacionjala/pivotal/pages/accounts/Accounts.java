@@ -10,10 +10,6 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebEle
 
 /**
  * This class represents Accounts page and its characteristics.
- *
- * @author Bruno Barrios
- * @version      %I%, %G%
- * @since        1.0
  */
 public class Accounts extends BasePage {
 

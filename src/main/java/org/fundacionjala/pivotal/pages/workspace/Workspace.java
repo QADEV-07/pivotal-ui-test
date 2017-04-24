@@ -21,8 +21,6 @@ import static org.fundacionjala.pivotal.framework.util.Constants.IMPLICIT_WAIT_T
 /**
  * Class that represents the main workspace page with all
  * its contents to be used.
- *
- * @author      Daniel Gonzales
  */
 public class Workspace extends BasePage {
 
