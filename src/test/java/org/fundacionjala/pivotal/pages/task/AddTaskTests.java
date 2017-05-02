@@ -25,7 +25,7 @@ public class AddTaskTests {
     /**
      * Given the the user has a project with a story.
      */
-    @BeforeMethod
+    @BeforeMethod(groups = {"Functional"})
     public void setup() {
         projectId = ProjectManager.createProject(PROJECT_NAME);
         StoryManager.createStory(projectId, STORY_NAME);
@@ -48,7 +48,7 @@ public class AddTaskTests {
     /**
      * Cleanup method.
      */
-    @AfterMethod
+    @AfterMethod(groups = {"Functional"})
     public void cleanup() {
         ProjectManager.deleteProject(projectId);
     }
