@@ -48,10 +48,10 @@ public class Story extends BasePage {
     @FindBy(css = ".rendered_description.tracker_markup")
     private WebElement descriptionText;
 
-    @FindBy(name = "story[pending_description]")
+    @FindBy(css = "textarea[data-aid='textarea']") //old: name = story[pending_description]")
     private WebElement storyDescriptionTextField;
 
-    @FindBy(xpath = "//button[contains(.,'Done')]")
+    @FindBy(css = "button[data-aid='save']") //old: xpath = //button[contains(.,'Done')]
     private WebElement doneDescriptionButton;
 
     @FindBy(name = "label[name]")
@@ -96,6 +96,11 @@ public class Story extends BasePage {
     private WebElement cancelDeleteButton;
     private String commentMesage;
     private String storyTypeName;
+
+    // position on the desired story
+    public void clickOnExpanderStoryLA(String storyName){
+        driver.findElement(By.xpath("//a[@title='" + storyName +"']/following-sibling::a[@class='expander undraggable']")).click();
+    }
 
     public Story clickOnCancelDeleteButton() {
         cancelDeleteButton.click();
