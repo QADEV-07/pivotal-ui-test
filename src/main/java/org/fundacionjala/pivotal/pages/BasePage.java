@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.pages;
 
 import org.fundacionjala.pivotal.framework.selenium.DriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +18,7 @@ public abstract class BasePage {
 
     protected WebDriverWait wait;
 
-    protected Actions action;
+    //protected Actions action;
 
     /**
      * Class constructor.
@@ -26,7 +26,7 @@ public abstract class BasePage {
     public BasePage() {
         driver = DriverManager.getInstance().getDriver();
         wait = new WebDriverWait(driver, WAIT_TIME);
-        action = new Actions(driver);
+        //action = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
 
