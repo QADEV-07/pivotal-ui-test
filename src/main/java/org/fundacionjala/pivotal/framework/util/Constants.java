@@ -1,8 +1,7 @@
 package org.fundacionjala.pivotal.framework.util;
 
 /**
- * This class will let us to use constants variables through the classes.
- * Created by brunobarrios on 7/13/2016.
+ * This class will let us use constants variables through the classes.
  */
 public final class Constants {
 
@@ -24,6 +23,14 @@ public final class Constants {
 
     public static final String PROJECTS_ENDPOINT = "/projects/";
 
+    public static final String STORIES_ENDPOINT = "/projects/%d/stories";
+
+    public static final String STORY_ENDPOINT = "/projects/%d/stories/%d";
+
+    public static final String TASKS_ENDPOINT = "/projects/%d/stories/%d/tasks";
+
+    public static final String TASK_ENDPOINT = "/projects/%d/stories/%d/tasks/%d";
+
     public static final String WORKSPACES_ENDPOINT = "/my/workspaces/";
 
     public static final String ATTRIBUTE_ID = "id";
@@ -42,6 +49,13 @@ public final class Constants {
 
     public static final String ELEMENT_COULD_NOT_BE_FOUND = "The element could not be found";
 
+    public static final String DASHBOARD_PAGE = "/dashboard";
+
+    public static final String RED_COLOR = "#dd7270";
+
+    /**
+     * Class constructor.
+     */
     private Constants() {
     }
 }

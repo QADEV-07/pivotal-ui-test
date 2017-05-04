@@ -4,15 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * This class initialize the Chrome Selenium Web Driver
- *
- * @author Henrry Salinas.
+ * This class initializes the Chrome Selenium Web Driver.
  */
 public class Chrome implements IDriver {
 
     private static final String WEBDRIVER_CHROME_DRIVER = "webdriver.chrome.driver";
 
-    private static final String DRIVER_PATH = "lib/chromedriver.exe";
+    private static final String DRIVER_PATH = "drivers/chromedriver.exe";
 
 
     /**

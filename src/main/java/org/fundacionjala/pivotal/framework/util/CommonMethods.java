@@ -5,8 +5,10 @@ import java.util.Map;
 
 import io.restassured.path.json.JsonPath;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -26,24 +28,26 @@ import static org.fundacionjala.pivotal.framework.util.Constants.WORKSPACES_ENDP
 
 
 /**
- * This class groups the generic methods
- *
- * @ Mijhail Villarroel
+ * This class groups the generic methods.
  */
 public final class CommonMethods {
 
     private static final WebDriverWait WEB_DRIVER_WAIT = getInstance().getWait();
+    private static final WebDriver WEB_DRIVER = getInstance().getDriver();
 
     private static final Logger LOGGER = Logger.getLogger(CommonMethods.class.getSimpleName());
 
+    /**
+     * Class constructor.
+     */
     private CommonMethods() {
     }
 
     /**
-     * This Method return false o true if the element be present.
+     * This Method return false o true if the element is present.
      *
-     * @param webElement element
-     * @return True or false
+     * @param webElement the web element to be verified
+     * @return true or false
      */
     public static boolean isElementPresent(WebElement webElement) {
         try {
@@ -57,10 +61,10 @@ public final class CommonMethods {
     }
 
     /**
-     * This method set a Web Element
+     * This method sets the Web Element.
      *
-     * @param webElement
-     * @param text
+     * @param webElement the object to be catched and the replaced
+     * @param text the value that will be filled on the web element
      */
     public static void setWebElement(WebElement webElement, String text) {
         WEB_DRIVER_WAIT.until(ExpectedConditions.visibilityOf(webElement));
@@ -69,9 +73,9 @@ public final class CommonMethods {
     }
 
     /**
-     * This Method do click in element
+     * This Method do clicks the web element.
      *
-     * @param webElement
+     * @param webElement the object to be clicked.
      */
     public static void clickWebElement(WebElement webElement) {
         WEB_DRIVER_WAIT.until(ExpectedConditions.elementToBeClickable(webElement));
@@ -79,10 +83,21 @@ public final class CommonMethods {
     }
 
     /**
-     * This Method set a check box element
+     * This Method do clicks the by element.
      *
-     * @param webElement
-     * @param enable
+     * @param byElement the object to be clicked.
+     */
+    public static void clickWebElement(By byElement) {
+        WEB_DRIVER_WAIT.until(ExpectedConditions.elementToBeClickable(byElement));
+        WEB_DRIVER.findElement(byElement).click();
+    }
+
+    /**
+     * This Method sets the state of
+     * the checkbox element.
+     *
+     * @param webElement the checkbox to be set
+     * @param enable the state to be configured
      */
     public static void setCheckBox(WebElement webElement, boolean enable) {
         if (enable) {
@@ -93,9 +108,10 @@ public final class CommonMethods {
     }
 
     /**
-     * This Method set a unchecked box element
+     * This Method sets the unchecked state to
+     * the checkbox element.
      *
-     * @param webElement
+     * @param webElement the checkbox to be unchecked
      */
     private static void unCheckBox(WebElement webElement) {
         if (!webElement.isSelected()) {
@@ -104,9 +120,10 @@ public final class CommonMethods {
     }
 
     /**
-     * This Method set a check box element
+     * This Method sets the checked state to
+     * the checkbox element.
      *
-     * @param webElement
+     * @param webElement the checkbox to be checked
      */
     private static void checkBox(WebElement webElement) {
         if (webElement.isSelected()) {
@@ -115,10 +132,10 @@ public final class CommonMethods {
     }
 
     /**
-     * Select 1 element the list
+     * Selects one element present on the list.
      *
-     * @param webElementSelect
-     * @param element
+     * @param webElementSelect the web element to be selected
+     * @param element the value type to be selected
      */
     public static void selectAElementComboBox(WebElement webElementSelect, String element) {
         Select oSelect = new Select(webElementSelect);
@@ -126,17 +143,17 @@ public final class CommonMethods {
     }
 
     /**
-     * Convert a Select element
+     * This method converts a Select element.
      *
-     * @param webElement
-     * @return
+     * @param webElement the element to be converted
+     * @return the selected element
      */
     public static Select convertASelect(WebElement webElement) {
         return new Select(webElement);
     }
 
     /**
-     * Delete all Project create by API
+     * Deletes all Projects created by the API.
      */
     public static void deleteAllProjects() {
         ArrayList<Map<String, ?>> jsonAsArrayList = JsonPath.from(getRequest(PROJECTS_ENDPOINT).asString()).get("");
@@ -148,7 +165,7 @@ public final class CommonMethods {
     }
 
     /**
-     * Delete all Project workspace by API
+     * Deletes all Project workspace created by the API.
      */
     public static void deleteAllWorkspaces() {
         ArrayList<Map<String, ?>> jsonAsArrayList = JsonPath.from(getRequest(WORKSPACES_ENDPOINT).asString()).get("");
@@ -160,7 +177,7 @@ public final class CommonMethods {
     }
 
     /**
-     * Delete all account
+     * Deletes all accounts created by the API.
      */
     public static void deleteAccounts() {
         DriverManager.getInstance().getDriver().get("https://www.pivotaltracker.com/accounts");
@@ -181,8 +198,58 @@ public final class CommonMethods {
         DriverManager.getInstance().getDriver().get("https://www.pivotaltracker.com/dashboard");
     }
 
+    /**
+     * This method closes the browser used.
+     * @param message the string to be displayed
+     */
     public static void quitProgram(String message) {
         LOGGER.info("Element null " + message);
         Runtime.getRuntime().runFinalization();
+    }
+
+    /**
+     * Method that gets the value of a web element.
+     * @param webElement WebElement.
+     * @return Text of the WebElement.
+     */
+    public static String getTextFieldValue(WebElement webElement) {
+        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(webElement));
+        return webElement.getText();
+    }
+
+    /**
+     * Method that gets the color of the text field WebElement.
+     * @param webElement Text field WebElement.
+     * @return A string with the color.
+     */
+    public static String getTextFieldColor(WebElement webElement) {
+        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(webElement));
+        return webElement.getCssValue("border-color").toString();
+    }
+
+    /**
+     * * Method to gets the color in hexadecimal format.
+     * @param color Color name.
+     * @return The color in hexadecimal format.
+     */
+    public static String getColorInHex(String color) {
+        String[] hexValue = color.replace("rgb(", "").replace(")", "").split(",");
+        int hexValue1 = Integer.parseInt(hexValue[0]);
+        hexValue[1] = hexValue[1].trim();
+        int hexValue2 = Integer.parseInt(hexValue[1]);
+        hexValue[2] = hexValue[2].trim();
+        int hexValue3 = Integer.parseInt(hexValue[2]);
+        return String.format("#%02x%02x%02x", hexValue1, hexValue2, hexValue3);
+    }
+
+    /**
+     * Mehod to get the attribute value of a WebElement.
+     * @param webElement WebElement.
+     * @param attribute Attribute name.
+     * @return The value of the attribute.
+     */
+    public static String getWebElementAttribute(WebElement webElement, String attribute) {
+        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(webElement));
+        return webElement.getAttribute(attribute);
     }
 }

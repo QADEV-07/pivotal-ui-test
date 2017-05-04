@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.fundacionjala.pivotal.pages.BasePage;
 import org.fundacionjala.pivotal.pages.dashboard.Dashboard;
 
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebElement;
+
 /**
- * This class create a form to create a new Workspace
- *
- * @author Daniel Gonzales
+ * This class creates a form to create a new Workspace.
  */
 public class DeleteWorkspace extends BasePage {
 
@@ -19,12 +19,22 @@ public class DeleteWorkspace extends BasePage {
     @FindBy(className = "cancel")
     private WebElement cancelDeleteLink;
 
+    /**
+     * Method that cancels the delete process once
+     * the delete link is pressed.
+     */
     public void clickCancelDeleteLink() {
-        cancelDeleteLink.click();
+        clickWebElement(cancelDeleteLink);
     }
 
+    /**
+     * Method that completes the delete process
+     * once the delete link is pressed.
+     *
+     * @return the dashboard instance
+     */
     public Dashboard clickConfirmDeleteLink() {
-        confirmDeleteLink.click();
+        clickWebElement(confirmDeleteLink);
         return new Dashboard();
     }
 }
