@@ -44,16 +44,15 @@ public class AddProjectTests {
     public void testAddProject() {
         //When
         CreateProject createProject = dashboard.clickCreateProjectButton();
-        String projectName = "Project1";
+        String projectName = "TestProject";
         String testAccount = "Account1";
         createProject.setProjectName(projectName);
         createProject.clickPublicProjectPrivacy();
         createProject.setAccountDropDown(testAccount);
-        createProject.clickPublicProjectPrivacy();
         project = createProject.clickCreateProject();
 
         //Then
-        assertEquals(projectName, project.getTitle());
+        assertEquals(PROJECT_NAME, project.getTitle());
     }
 
     /**
@@ -99,7 +98,7 @@ public class AddProjectTests {
      * After groups method.
      */
     @AfterGroups("Functional")
-    public void deleteWorkspace() {
+    public void deleteTheProject() {
         ProjectSettings projectSettings = project.clickSettingTab();
         String projectId = projectSettings.getProjectId();
         deleteProject(Integer.parseInt(projectId));

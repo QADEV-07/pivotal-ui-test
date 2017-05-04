@@ -1,10 +1,8 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.framework.selenium.DriverManager;
 import org.fundacionjala.pivotal.pages.Login;
 import org.fundacionjala.pivotal.pages.dashboard.Dashboard;
-import org.junit.Test;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 
 import static org.fundacionjala.pivotal.api.ProjectManager.createProject;
@@ -28,7 +26,6 @@ public class DeleteProjectTests {
         //Given
         createProject(PROJECT_TO_BE_DELETED);
         dashboard = Login.loginAsPrimaryUser();
-        dashboard.clickProjectsTab();
     }
 
     /**
@@ -46,13 +43,5 @@ public class DeleteProjectTests {
         String actualMessage = dashboard.getMessageTextDelete();
         String expectedMessage = String.format("%s %s", PROJECT_TO_BE_DELETED, "was successfully deleted.");
         assertEquals(actualMessage, expectedMessage);
-    }
-
-    /**
-     * After class method.
-     */
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().quitDriver();
     }
 }

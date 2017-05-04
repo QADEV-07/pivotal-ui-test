@@ -22,6 +22,8 @@ import static org.fundacionjala.pivotal.framework.util.CommonMethods.convertASel
 import static org.fundacionjala.pivotal.framework.util.CommonMethods.selectAElementComboBox;
 import static org.fundacionjala.pivotal.framework.util.CommonMethods.setCheckBox;
 import static org.fundacionjala.pivotal.framework.util.CommonMethods.setWebElement;
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.getTextFieldValue;
+
 import static org.fundacionjala.pivotal.framework.util.Constants.ATTRIBUTE_VALUE;
 import static org.fundacionjala.pivotal.framework.util.Constants.REGEX_BRACKETS;
 import static org.fundacionjala.pivotal.framework.util.Constants.REGEX_HALF_BRACKET;
@@ -709,5 +711,45 @@ public class ProjectSettings extends BasePage {
         CommonMethods.scrollIntoViewWebElement(deleteLink);
         CommonMethods.clickWebElement(deleteLink);
         return new DeleteProjectAlert();
+    }
+
+    /**
+     * Method that retrieves the project name configured on Project
+     * Settings.
+     *
+     * @return the project name
+     */
+    public String getProjectName() {
+        return getTextFieldValue(projectTitleTestField);
+    }
+
+    /**
+     * Method that retrieves the project description configured on Project
+     * Settings.
+     *
+     * @return the project description
+     */
+    public String getProjectDescription() {
+        return getTextFieldValue(projectDescriptionTestField);
+    }
+
+    /**
+     * Method that retrieves the project initial velocity configured on Project
+     * Settings.
+     *
+     * @return the project initial velocity
+     */
+    public String getProjectInitialVelocity() {
+        return getTextFieldValue(projectInitialVelocityTestField);
+    }
+
+    /**
+     * Method that retrieves the project iterations to show
+     * configured on Project Settings.
+     *
+     * @return the project initial velocity
+     */
+    public String getProjectIterationsToShow() {
+        return getTextFieldValue(projectNumberOfDoneIterationsToShowTestField);
     }
 }

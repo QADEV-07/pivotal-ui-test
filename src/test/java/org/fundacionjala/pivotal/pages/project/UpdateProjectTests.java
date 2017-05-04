@@ -1,14 +1,12 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.apache.bcel.generic.NEW;
-import org.fundacionjala.pivotal.framework.selenium.DriverManager;
+import org.fundacionjala.pivotal.framework.util.CommonMethods;
 import org.fundacionjala.pivotal.pages.Login;
 import org.fundacionjala.pivotal.pages.dashboard.Dashboard;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import sun.util.resources.cldr.ga.LocaleNames_ga;
 
 import static org.fundacionjala.pivotal.api.ProjectManager.createProject;
 import static org.fundacionjala.pivotal.api.ProjectManager.deleteProject;
@@ -26,8 +24,6 @@ public class UpdateProjectTests {
     private static final String NEW_DONE_ITERATIONS_TO_SHOW = "6";
     private Dashboard dashboard;
     private int projectId;
-    private Project project;
-    private ProjectSettings projectSettings;
 
     /**
      * Before method.
@@ -36,8 +32,6 @@ public class UpdateProjectTests {
     public void setUp() {
         projectId = createProject(PROJECT);
         dashboard = Login.loginAsPrimaryUser();
-        project = dashboard.clickOnProject(PROJECT);
-        projectSettings = project.clickSettingTab();
     }
 
     /**
@@ -46,11 +40,13 @@ public class UpdateProjectTests {
     @Test
     public void testUpdateProjectName() {
         //When
+        Project project = dashboard.clickOnProject(PROJECT);
+        ProjectSettings projectSettings = project.clickSettingTab();
         projectSettings.setProjectTitleTestField(NEW_PROJECT_NAME);
         projectSettings.clickSaveButton();
 
         //Then
-        assertEquals(projectSettings.getProjectTitleTestField(), NEW_PROJECT_NAME);
+        assertEquals(projectSettings.getProjectName(), NEW_PROJECT_NAME);
     }
 
     /**
@@ -59,11 +55,13 @@ public class UpdateProjectTests {
     @Test
     public void testUpdateProjectDescription() {
         //When
+        Project project = dashboard.clickOnProject(PROJECT);
+        ProjectSettings projectSettings = project.clickSettingTab();
         projectSettings.setProjectDescriptionTestField(NEW_DESCRIPTION);
         projectSettings.clickSaveButton();
 
         //Then
-        assertEquals(projectSettings.getDescriptionText(), NEW_DESCRIPTION);
+        assertEquals(projectSettings.getProjectDescription(), NEW_DESCRIPTION);
     }
 
     /**
@@ -72,28 +70,32 @@ public class UpdateProjectTests {
     @Test
     public void testUpdateInitialVelocity() {
         //When
+        Project project = dashboard.clickOnProject(PROJECT);
+        ProjectSettings projectSettings = project.clickSettingTab();
         projectSettings.setProjectInitialVelocityTestField(NEW_INITIAL_VELOCITY);
         projectSettings.clickSaveButton();
 
         //Then
-        assertEquals(projectSettings.getInitialVelocity(), NEW_INITIAL_VELOCITY);
+        assertEquals(projectSettings.getProjectInitialVelocity(), NEW_INITIAL_VELOCITY);
     }
 
     /**
-     * Verify we can update "Number of Done Interations to Show".
+     * Verify we can update "Number of Done Iterations to Show".
      */
     @Test
     public void testUpdateNumberOfDoneIterationsToShow() {
         //When
+        Project project = dashboard.clickOnProject(PROJECT);
+        ProjectSettings projectSettings = project.clickSettingTab();
         projectSettings.setProjectNumOfDoneIterationsToShowTestField(NEW_DONE_ITERATIONS_TO_SHOW);
         projectSettings.clickSaveButton();
 
         //Then
-        assertEquals(projectSettings.getNumberIterationShow(), NEW_DONE_ITERATIONS_TO_SHOW);
+        assertEquals(projectSettings.getProjectIterationsToShow(), NEW_DONE_ITERATIONS_TO_SHOW);
     }
 
     /**
-     * Cleanup method
+     * Cleanup method.
      */
     @AfterMethod
     public void cleanUp() {
@@ -105,6 +107,7 @@ public class UpdateProjectTests {
      */
     @AfterClass
     public void tearDown() {
-        DriverManager.getInstance().quitDriver();
+        String message = "Finishing test";
+        CommonMethods.quitProgram(message);
     }
 }

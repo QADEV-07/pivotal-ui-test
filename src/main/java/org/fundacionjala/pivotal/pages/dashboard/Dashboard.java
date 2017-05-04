@@ -64,7 +64,6 @@ public class Dashboard extends BasePage {
 
     private final String workspaceNameLocator = "//a[text() = '%s']";
 
-    private static final int TIMEOUT = 45;
     private static final int POLLING = 5;
 
     /**
@@ -75,7 +74,7 @@ public class Dashboard extends BasePage {
      */
     private void clickOnCreateProjectOrWorkspaceButton(WebElement webElement, String errorMessage) {
         try {
-            wait.withTimeout(TIMEOUT, SECONDS);
+            wait.withTimeout(WAIT_TIME, SECONDS);
             clickWebElement(webElement);
         } catch (NoSuchElementException e) {
             LOGGER.warn(errorMessage, e);
