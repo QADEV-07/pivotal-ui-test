@@ -8,21 +8,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
 
 /**
  * Created by Automation on 5/4/2017.
  */
-public class UpdateStoryTests {
+public class DeleteStory {
     private static final String PROJECT_NAME = "TestProject";
     private static final String STORY_TITLE = "TestStory";
-    private static final String UPDATED_STORY_TITLE = "UpdatedTestStory";
-    private static final String UPDATED_STORY_DESCRIPTION = "Updated short test story description.";
     private int projectId;
     private Dashboard dashboard;
 
     /**
-     * Given that the user has a project, and a User Story.
+     * Given that the user has a project, and a User Story.  setup class
      */
     @BeforeMethod(groups = {"Functional"})
     public void setup() {
@@ -32,17 +30,16 @@ public class UpdateStoryTests {
     }
 
     /**
-     * When we have update data for an existent Story, Then verify that the old story has been updated.
+     * When we have an existent Story, Then verify that we can delete it.
      */
     @Test(groups = {"Functional"})
     public void updateStoryLA() {
         dashboard.clickOnProject(PROJECT_NAME);
         Story story = new Story();
         story.clickOnExpanderStoryLA(STORY_TITLE); //opens the right Story "expandable" when more than one is available
-        story.setStoryTitleTextArea(UPDATED_STORY_TITLE);
-        story.setDescriptionTextarea(UPDATED_STORY_DESCRIPTION);
-        story.clickOnCloseStoryButton();
-        assertTrue(story.existsStoryTitle(UPDATED_STORY_TITLE));
+        story.clickOnDeleteStoryButton();
+        story.clickOnConfirmDeleteStoryButton();
+        assertFalse(story.existsStoryTitle(STORY_TITLE));
     }
 
     /**
