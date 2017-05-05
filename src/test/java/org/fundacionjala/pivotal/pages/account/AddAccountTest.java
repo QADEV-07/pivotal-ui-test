@@ -3,7 +3,6 @@ package org.fundacionjala.pivotal.pages.account;
 import org.fundacionjala.pivotal.pages.Login;
 import org.fundacionjala.pivotal.pages.accounts.Accounts;
 import org.fundacionjala.pivotal.pages.accounts.CreateAccountForm;
-import org.fundacionjala.pivotal.pages.dashboard.Dashboard;
 import org.fundacionjala.pivotal.pages.dashboard.ToolBar;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -17,7 +16,6 @@ public class AddAccountTest {
 
     private Accounts accountpage;
     public static final String ACCOUNT_NAME = "test account";
-    private Dashboard dashboard;
 
     /**
      * @BeforeMethod(groups = {"Functional"}) Set up before to run the test case.
@@ -25,7 +23,7 @@ public class AddAccountTest {
      */
     @BeforeMethod(groups = {"Functional"})
     public void setup() {
-        dashboard = Login.loginAsPrimaryUser(); }
+        Login.loginAsPrimaryUser(); }
 
     /**
      * @BeforeMethod(groups = {"Functional"}) Method to test the account creation.

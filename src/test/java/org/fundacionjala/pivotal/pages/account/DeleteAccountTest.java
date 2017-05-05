@@ -3,7 +3,6 @@ package org.fundacionjala.pivotal.pages.account;
 import org.fundacionjala.pivotal.pages.Login;
 import org.fundacionjala.pivotal.pages.accounts.Accounts;
 import org.fundacionjala.pivotal.pages.accounts.CreateAccountForm;
-import org.fundacionjala.pivotal.pages.dashboard.Dashboard;
 import org.fundacionjala.pivotal.pages.dashboard.ToolBar;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -24,7 +23,7 @@ public class DeleteAccountTest {
     @BeforeMethod(groups = {"Functional"})
     public void setup() {
         //Given
-        Dashboard dashboard = Login.loginAsPrimaryUser();
+        Login.loginAsPrimaryUser();
         accountpage = ToolBar.clickAccountlink();
         createaccount = accountpage.clickNewAccountBtn();
         createaccount.setAccountNameTextField(ACCOUNT_NAME);
