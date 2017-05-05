@@ -1,33 +1,23 @@
 package org.fundacionjala.pivotal.framework.util;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import io.restassured.path.json.JsonPath;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import org.fundacionjala.pivotal.framework.selenium.DriverManager;
 import org.fundacionjala.pivotal.pages.accounts.AccountSetting;
 import org.fundacionjala.pivotal.pages.accounts.Accounts;
 import org.fundacionjala.pivotal.pages.accounts.CreateAccountForm;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 import static org.fundacionjala.pivotal.api.RequestManager.deleteRequest;
 import static org.fundacionjala.pivotal.api.RequestManager.getRequest;
 import static org.fundacionjala.pivotal.framework.selenium.DriverManager.getInstance;
-import static org.fundacionjala.pivotal.framework.util.Constants.ATTRIBUTE_ID;
-import static org.fundacionjala.pivotal.framework.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.pivotal.framework.util.Constants.WORKSPACES_ENDPOINT;
+import static org.fundacionjala.pivotal.framework.util.Constants.*;
 
 
 /**
@@ -281,5 +271,14 @@ public final class CommonMethods {
             throwable.printStackTrace();
         }
         return null;
+    }
+    public static String getTextForElement(WebElement webElement)
+    {
+        return webElement.getText();
+    }
+    public static String getValue(WebElement webElement)
+    {
+        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(webElement));
+        return webElement.getAttribute("value");
     }
 }
