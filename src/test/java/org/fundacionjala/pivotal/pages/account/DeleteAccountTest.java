@@ -17,29 +17,31 @@ public class DeleteAccountTest {
     protected Accounts accountpage;
     protected CreateAccountForm createaccount;
     protected static final String ACCOUNT_NAME = "test account";
+
+    /**
+     * @BeforeMethod(groups = {"Functional"}) Method to setup the testing.
+     */
     @BeforeMethod(groups = {"Functional"})
-    public void setup()
-    {
+    public void setup() {
         //Given
         Dashboard dashboard = Login.loginAsPrimaryUser();
-        accountpage = ToolBar.clickAccountlink() ;
+        accountpage = ToolBar.clickAccountlink();
         createaccount = accountpage.clickNewAccountBtn();
         createaccount.setAccountNameTextField(ACCOUNT_NAME);
         createaccount.clickCreateAccountBtn();
     }
-    @Test (groups = {"Functional"})
-    public void deleteAccount()
-    {
+
+    /**
+     * @Test(groups = {"Functional"}) method that test the Delet account function.
+     */
+    @Test(groups = {"Functional"})
+    public void deleteAccount() {
         //When
         accountpage.deleteAccount();
-        String expectedResult=ACCOUNT_NAME+" was successfully deleted.";
+        String expectedResult = ACCOUNT_NAME + " was successfully deleted.";
 
-        System.out.println("expected result:" + expectedResult);
         String actualResult = accountpage.getDeleteAccountMessage();
-        System.out.println("actual result:"+actualResult);
-
-
         //Then
-        Assert.assertEquals(expectedResult,actualResult);
+        Assert.assertEquals(expectedResult, actualResult);
     }
 }

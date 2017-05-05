@@ -8,7 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static org.fundacionjala.pivotal.framework.util.CommonMethods.*;
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.clickWebElement;
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.getTextForElement;
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.setWebElement;
+import static org.fundacionjala.pivotal.framework.util.CommonMethods.getValue;
+//import static org.fundacionjala.pivotal.framework.util.CommonMethods.*;
+
 
 /**
  * This class represents Accounts page and its characteristics.
@@ -39,16 +44,17 @@ public class Accounts extends BasePage {
     private WebElement accountname;
 
     @FindBy(xpath = "//*[contains(a,'Settings')]")
-    WebElement settingsTab;
+    private WebElement settingsTab;
 
     @FindBy(css = "a[data-method='delete']")
-    WebElement deleteLink;
+    private WebElement deleteLink;
 
     @FindBy(css = "input[id='account_name']")
-    WebElement accountNameTextValue;
+    private WebElement accountNameTextValue;
 
     @FindBy(css = "div.save_changes input")
-    WebElement saveChangesButton;
+    private WebElement saveChangesButton;
+
     /**
      * Class constructor,
      * This class instances a ToolBarAccount.
@@ -116,42 +122,63 @@ public class Accounts extends BasePage {
         return new ToolBar();
     }
 
+    /**
+     *
+     * @return the text of the Webelement
+     */
     ///Created by JQN
 
-    public String getAccountName()
-    {
+    public String getAccountName() {
         return getTextForElement(accountname);
     }
-    public void deleteAccount()
-    {
+
+    /**
+     * @remove an account created
+     */
+    public void deleteAccount() {
         clickWebElement(settingsTab);
         clickWebElement(deleteLink);
         checkAlert();
     }
+
+    /**
+     * this method check the JS alert to remove an account.
+     */
     private void checkAlert() {
         try {
             wait.until(ExpectedConditions.alertIsPresent());
             Alert alert = driver.switchTo().alert();
             alert.accept();
         } catch (Exception e) {
-            LOGGER.warn("alert is not present",e);
+            LOGGER.warn("alert is not present", e);
             //exception handling
         }
     }
-    public String accountNameCreated()
-    {
+
+    /**
+     *
+     * @return and String with the AccountName created
+     */
+    public String accountNameCreated() {
         clickWebElement(settingsTab);
         return accountNameTextValue.getAttribute("value");
     }
-    public void editAccount(String newAccountName)
-    {
+
+    /**
+     *
+     * @param newAccountName edit the account using the accountname as a parameter
+     */
+    public void editAccount(String newAccountName) {
         clickWebElement(settingsTab);
         setWebElement(accountNameTextValue, newAccountName);
         clickWebElement(saveChangesButton);
     }
-    public String accountNametitle()
-    {
-        System.out.println(getValue(accountname));
+
+    /**
+     *
+     * @return the String title
+     */
+    public String accountNametitle() {
         return getValue(accountname);
     }
 

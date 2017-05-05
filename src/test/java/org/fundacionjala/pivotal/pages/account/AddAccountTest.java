@@ -15,20 +15,25 @@ import org.testng.annotations.Test;
  */
 public class AddAccountTest {
 
-    Accounts accountpage;
+    private Accounts accountpage;
     public static final String ACCOUNT_NAME = "test account";
-    Dashboard dashboard;
+    private Dashboard dashboard;
 
+    /**
+     * @BeforeMethod(groups = {"Functional"}) Set up before to run the test case.
+     * Given
+     */
     @BeforeMethod(groups = {"Functional"})
     public void setup() {
-        //Given
-        dashboard = Login.loginAsPrimaryUser();
-    }
-    @Test (groups = {"Functional"})
-    public void createAccountTest()
-    {
+        dashboard = Login.loginAsPrimaryUser(); }
+
+    /**
+     * @BeforeMethod(groups = {"Functional"}) Method to test the account creation.
+     */
+    @Test(groups = {"Functional"})
+    public void createAccountTest() {
         //When
-        accountpage = ToolBar.clickAccountlink() ;
+        accountpage = ToolBar.clickAccountlink();
         CreateAccountForm createaccount = accountpage.clickNewAccountBtn();
         createaccount.setAccountNameTextField(ACCOUNT_NAME);
         createaccount.clickCreateAccountBtn();
@@ -36,12 +41,15 @@ public class AddAccountTest {
         String actualResultAccountCreatedTitle = accountpage.getAccountName();
 
         //Then
-        Assert.assertEquals(actualResultAccountCreatedTitle,ACCOUNT_NAME);
-        Assert.assertEquals(actualResultAccountSettings,ACCOUNT_NAME);
+        Assert.assertEquals(actualResultAccountCreatedTitle, ACCOUNT_NAME);
+        Assert.assertEquals(actualResultAccountSettings, ACCOUNT_NAME);
     }
+
+    /**
+     * @AfterMethod(groups = {"Functional"}) method to remove the account.
+     */
     @AfterMethod(groups = {"Functional"})
-    public void deleteAccountTest()
-    {
+    public void deleteAccountTest() {
         accountpage.deleteAccount();
     }
 }

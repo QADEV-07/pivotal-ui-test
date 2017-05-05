@@ -28,6 +28,7 @@ public class ToolBar extends BasePage {
     /**
      * Method that let us click the link to
      * return to a dashboard.
+     *
      * @return the Dashboard instance
      */
     public Dashboard clickReturnDashboardLink() {
@@ -38,17 +39,25 @@ public class ToolBar extends BasePage {
     /**
      * Method that let us click the link to
      * enter to the settings options.
+     *
      * @return the Settings instance
      */
     public Setting clickSettingTabLink() {
         clickWebElement(settingsTabLink);
         return new Setting();
     }
+
     //method to go to the accopunts page created by JQN
-    public static Accounts clickAccountlink(){
+
+    /**
+     *
+     * @return this method returns the accountpage when the Account link is pressed
+     */
+    public static Accounts clickAccountlink() {
         WebDriver driver = DriverManager.getInstance().getDriver();
         WebDriverWait wait = DriverManager.getInstance().getWait();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class='undefined tc_profile_dropdown'] a")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("div[class='undefined tc_profile_dropdown'] a")));
         driver.findElement(By.cssSelector("div[class='undefined tc_profile_dropdown'] a")).click();
         driver.findElement(By.cssSelector("ul[data-aid='MenuList'] a[href='/accounts']")).click();
         return new Accounts();
